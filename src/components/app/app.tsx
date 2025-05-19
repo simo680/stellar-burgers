@@ -136,14 +136,16 @@ const App = () => {
         <Route
           path='/profile/orders/:number'
           element={
-            <div className={styles.detailPageWrap}>
-              <p
-                className={`text text_type_digits-default ${styles.detailHeader}`}
-              >
-                #{orderNumber && orderNumber.padStart(6, '0')}
-              </p>
-              <OrderInfo />
-            </div>
+            <ProtectedRoute>
+              <div className={styles.detailPageWrap}>
+                <p
+                  className={`text text_type_digits-default ${styles.detailHeader}`}
+                >
+                  #{orderNumber && orderNumber.padStart(6, '0')}
+                </p>
+                <OrderInfo />
+              </div>
+            </ProtectedRoute>
           }
         />
       </Routes>

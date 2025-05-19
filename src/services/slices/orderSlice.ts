@@ -30,7 +30,7 @@ export const createOrder = createAsyncThunk<
   const res = await orderBurgerApi(ingredients);
 
   if (!res?.success) {
-    rejectWithValue('Ошибка создании заказа');
+    return rejectWithValue('Ошибка создании заказа');
   }
 
   return res.order;

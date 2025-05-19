@@ -47,6 +47,7 @@ export const BurgerConstructor: FC = () => {
     ];
 
     dispatch(createOrder(ingredients))
+      .unwrap()
       .then(() => {
         dispatch(resetConstructor());
       })
