@@ -1,12 +1,18 @@
 import { ProfileUI } from '@ui-pages';
 import { FC, SyntheticEvent, useEffect, useState } from 'react';
+import { useSelector, useDispatch } from '../../services/store';
+import { Preloader } from '@ui';
+import { selectUser } from '../../services/selectors/userSelector';
+import { updateUser } from '../../services/slices/userSlice';
 
 export const Profile: FC = () => {
-  /** TODO: взять переменную из стора */
-  const user = {
-    name: '',
-    email: ''
-  };
+  const dispatch = useDispatch();
+
+  const user = useSelector(selectUser);
+
+  if (!user) {
+    return <Preloader />;
+  }
 
   const [formValue, setFormValue] = useState({
     name: user.name,
@@ -29,6 +35,14 @@ export const Profile: FC = () => {
 
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
+    const { name, email, password } = formValue;
+    dispatch(updateUser({ name, email, password })).then(() => {
+      setFormValue({
+        name,
+        email,
+        password: ''
+      });
+    });
   };
 
   const handleCancel = (e: SyntheticEvent) => {
@@ -56,6 +70,4 @@ export const Profile: FC = () => {
       handleInputChange={handleInputChange}
     />
   );
-
-  return null;
 };
