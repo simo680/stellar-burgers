@@ -151,6 +151,7 @@ export const userSlice = createSlice({
       .addCase(loginUser.fulfilled, (state, action) => {
         state.loginUserRequest = false;
         state.userData = action.payload;
+        state.isAuthenticated = true;
         state.isAuthChecked = true;
       })
 
