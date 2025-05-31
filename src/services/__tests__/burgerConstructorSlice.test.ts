@@ -7,35 +7,35 @@ import {
   resetConstructor
 } from '../slices/burgerConstructorSlice';
 
-const mockBun: TIngredient = {
-  _id: '1',
-  name: 'Ингредиент 1',
-  type: 'bun',
-  proteins: 80,
-  fat: 24,
-  carbohydrates: 53,
-  calories: 420,
-  price: 1255,
-  image: 'https://code.s3.yandex.net/react/code/bun-02.png',
-  image_mobile: 'https://code.s3.yandex.net/react/code/bun-02-mobile.png',
-  image_large: 'https://code.s3.yandex.net/react/code/bun-02-large.png'
-};
-
-const mockIngredient: TIngredient = {
-  _id: '2',
-  name: 'Ингредиент 2',
-  type: 'main',
-  proteins: 420,
-  fat: 142,
-  carbohydrates: 242,
-  calories: 4242,
-  price: 424,
-  image: 'https://code.s3.yandex.net/react/code/meat-01.png',
-  image_mobile: 'https://code.s3.yandex.net/react/code/meat-01-mobile.png',
-  image_large: 'https://code.s3.yandex.net/react/code/meat-01-large.png'
-};
-
 describe('burgerConstructorSlice reducer', () => {
+  const mockBun: TIngredient = {
+    _id: '1',
+    name: 'Ингредиент 1',
+    type: 'bun',
+    proteins: 80,
+    fat: 24,
+    carbohydrates: 53,
+    calories: 420,
+    price: 1255,
+    image: 'https://code.s3.yandex.net/react/code/bun-02.png',
+    image_mobile: 'https://code.s3.yandex.net/react/code/bun-02-mobile.png',
+    image_large: 'https://code.s3.yandex.net/react/code/bun-02-large.png'
+  };
+
+  const mockIngredient: TIngredient = {
+    _id: '2',
+    name: 'Ингредиент 2',
+    type: 'main',
+    proteins: 420,
+    fat: 142,
+    carbohydrates: 242,
+    calories: 4242,
+    price: 424,
+    image: 'https://code.s3.yandex.net/react/code/meat-01.png',
+    image_mobile: 'https://code.s3.yandex.net/react/code/meat-01-mobile.png',
+    image_large: 'https://code.s3.yandex.net/react/code/meat-01-large.png'
+  };
+
   it('тест на добавление булки', () => {
     const state = burgerConstructorSlice.reducer(
       undefined,

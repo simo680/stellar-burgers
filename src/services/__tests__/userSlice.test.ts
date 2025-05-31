@@ -10,23 +10,23 @@ import {
 } from '../slices/userSlice';
 import { TUser } from '@utils-types';
 
-const mockUserLogin = {
-  email: 'test@example.com',
-  password: 'testExample'
-};
-
-const mockUserRegister = {
-  email: 'test@example.com',
-  name: 'Erik',
-  password: 'testExample'
-};
-
-const mockUserUpdate: TUser = {
-  email: 'test@example.com',
-  name: 'simozoid'
-};
-
 describe('userSlice', () => {
+  const mockUserLogin = {
+    email: 'test@example.com',
+    password: 'testExample'
+  };
+
+  const mockUserRegister = {
+    email: 'test@example.com',
+    name: 'Erik',
+    password: 'testExample'
+  };
+
+  const mockUserUpdate: TUser = {
+    email: 'test@example.com',
+    name: 'simozoid'
+  };
+
   // Login
   it('тест loginUser.pending на установку loginUserRequest в true и сброса ошибки', () => {
     const state = userSlice.reducer(
