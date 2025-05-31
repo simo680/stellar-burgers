@@ -12,7 +12,7 @@ type TOrderState = {
   error: string | null;
 };
 
-const initialState: TOrderState = {
+export const initialState: TOrderState = {
   currentOrder: null,
   ordersHistory: [],
   orderModalData: null,
@@ -83,7 +83,7 @@ export const orderSlice = createSlice({
       })
       .addCase(createOrder.rejected, (state, action) => {
         state.orderRequest = false;
-        state.error = action.error.message || 'Не удалось создать заказ';
+        state.error = action.payload ?? 'Не удалось создать заказ';
       })
       .addCase(
         createOrder.fulfilled,
@@ -100,7 +100,7 @@ export const orderSlice = createSlice({
       })
       .addCase(fetchOrderByNumber.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.error.message || 'Не удалось загрузить заказ';
+        state.error = action.payload ?? 'Не удалось загрузить заказ';
       })
       .addCase(
         fetchOrderByNumber.fulfilled,
@@ -119,7 +119,7 @@ export const orderSlice = createSlice({
       })
       .addCase(fetchOrdersHistory.rejected, (state, action) => {
         state.ordersHistoryRequest = false;
-        state.error = action.error.message || 'Не удалось загрузить историю';
+        state.error = action.payload ?? 'Не удалось загрузить историю';
       })
       .addCase(
         fetchOrdersHistory.fulfilled,

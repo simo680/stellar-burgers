@@ -12,7 +12,7 @@ import {
 export const IngredientsCategory = forwardRef<
   HTMLUListElement,
   TIngredientsCategoryProps
->(({ title, titleRef, ingredients }, ref) => {
+>(({ title, titleRef, ingredients, ...rest }, ref) => {
   const constructorIngredients = useSelector(selectConstructorIngredients);
   const constructorBun = useSelector(selectConstructorBun);
 
@@ -39,6 +39,7 @@ export const IngredientsCategory = forwardRef<
       ingredients={ingredients}
       ingredientsCounters={ingredientsCounters}
       ref={ref}
+      {...rest}
     />
   );
 });
